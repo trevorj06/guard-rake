@@ -38,19 +38,19 @@ module Guard
 
     if ::Guard::VERSION < "1.1"
       def run_on_change(paths)
-        run_rake_task(paths)
+        run_rake_task
       end
     else
       def run_on_changes(paths)
-        run_rake_task(paths)
+        run_rake_task
       end
     end
 
 
-    def run_rake_task(paths=[])
+    def run_rake_task
       UI.info "running #{@task}"
       ::Rake::Task.tasks.each { |t| t.reenable }
-      ::Rake::Task[@task].invoke(paths)
+      ::Rake::Task[@task].invoke
     end
   end
 end
