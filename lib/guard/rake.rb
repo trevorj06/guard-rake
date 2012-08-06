@@ -16,6 +16,7 @@ module Guard
 
     def start
       UI.info "Starting guard-rake #{@task}"
+      UI.info "#{@options.inspect}"
       ::Rake.application.init
       ::Rake.application.load_rakefile
       run_all if @options[:run_on_start]
