@@ -47,7 +47,7 @@ module Guard
     end
 
 
-    def run_rake_task(paths)
+    def run_rake_task(paths=[])
       UI.info "running #{@task}"
       ::Rake::Task.tasks.each { |t| t.reenable }
       ::Rake::Task[@task].invoke(paths)
